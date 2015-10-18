@@ -50,7 +50,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 $route['default_controller'] = 'welcome';
-$route['api/mahasiswa']['GET'] = 'MahasiswaController/getMahasiswa';
+$route['api/mahasiswa/(:num)/(:num)']['GET'] = 'MahasiswaController/getMahasiswa/$1/$2';
 $route['api/mahasiswa']['POST'] = 'MahasiswaController/saveMahasiswa';
 $route['api/mahasiswa/(:any)']['PUT'] = 'MahasiswaController/updateMahasiswa/$1';
 $route['api/mahasiswa/(:any)']['DELETE'] = 'MahasiswaController/deleteMahasiswa/$1';
