@@ -8,9 +8,12 @@ class MahasiswaController extends CI_Controller {
     $this->load->model('Mahasiswa');
   }
 
-  public function getMahasiswa()
+  public function getMahasiswa($page, $size)
   {
-    $response = $this->Mahasiswa->getMahasiswa()->result();
+
+    $response = array(
+      'content' => $this->Mahasiswa->getMahasiswa($page - 1, $size)->result(),
+      'totalPages' => ceil($this->Mahasiswa->getCountMahasiswa() / $size));
 
     $this->output
       ->set_status_header(200)
