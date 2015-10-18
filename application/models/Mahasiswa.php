@@ -2,9 +2,14 @@
 
 class Mahasiswa extends CI_Model {
 
-  public function getMahasiswa()
+  public function getCountMahasiswa()
   {
-      return $this->db->get('mahasiswa');
+      return $this->db->count_all_results('mahasiswa', FALSE);
+  }
+
+  public function getMahasiswa($page, $size)
+  {
+      return $this->db->get('mahasiswa', $size, $page);
   }
 
   public function insertMahasiswa($dataMahasiswa)
